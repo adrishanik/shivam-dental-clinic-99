@@ -188,6 +188,7 @@
     position:relative;border-radius:var(--radius-lg);background:linear-gradient(160deg,var(--mint-100),var(--paper));
     border:1px solid var(--line);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;overflow:hidden;
   }
+  .doctor-frame img{width:100%;height:100%;object-fit:cover;}
   .doctor-frame svg{width:62%;}
   .cred-list{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 26px;}
   .cred-list li{
@@ -226,8 +227,12 @@
   .gallery{background:var(--paper);}
   .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;}
   .gal-item{
-    aspect-ratio:4/3;border-radius:var(--radius-md);background:linear-gradient(150deg,var(--mint-100),var(--ivory));
-    border:1px dashed var(--line);display:flex;align-items:center;justify-content:center;color:var(--muted);
+    aspect-ratio:4/3;border-radius:var(--radius-md);overflow:hidden;position:relative;
+    background:linear-gradient(150deg,var(--mint-100),var(--ivory));border:1px dashed var(--line);
+  }
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;}
+  .gal-fallback{
+    position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:var(--muted);
     font-size:.8rem;text-align:center;padding:14px;font-weight:600;
   }
 
@@ -411,7 +416,8 @@
   <section class="about" id="about">
     <div class="wrap about-grid">
       <div class="doctor-frame">
-        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+        <img src="assets/dr-abhinandan-patra.jpg" alt="Dr. Abhinandan Patra, BDS, MDS" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="display:none;">
           <circle cx="100" cy="78" r="42" fill="#175455" opacity=".12"/>
           <circle cx="100" cy="70" r="30" fill="#175455" opacity=".85"/>
           <path d="M40 190c8-42 34-64 60-64s52 22 60 64" fill="#175455" opacity=".85"/>
@@ -499,12 +505,30 @@
       <p class="eyebrow">Inside The Clinic</p>
       <h2>A calm, modern space in the heart of Tarakeswar</h2>
       <div class="gal-grid">
-        <div class="gal-item">Clinic reception photo<br>— add real image</div>
-        <div class="gal-item">Treatment room photo<br>— add real image</div>
-        <div class="gal-item">Equipment / tools photo<br>— add real image</div>
-        <div class="gal-item">Waiting area photo<br>— add real image</div>
-        <div class="gal-item">Dr. Patra at work<br>— add real image</div>
-        <div class="gal-item">Clinic signage / exterior<br>— add real image</div>
+        <div class="gal-item">
+          <img src="assets/gallery-reception.jpg" alt="Clinic reception" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Clinic reception photo<br>— add real image</div>
+        </div>
+        <div class="gal-item">
+          <img src="assets/gallery-treatment-room.jpg" alt="Treatment room" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Treatment room photo<br>— add real image</div>
+        </div>
+        <div class="gal-item">
+          <img src="assets/gallery-equipment.jpg" alt="Dental equipment" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Equipment / tools photo<br>— add real image</div>
+        </div>
+        <div class="gal-item">
+          <img src="assets/gallery-waiting-area.jpg" alt="Waiting area" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Waiting area photo<br>— add real image</div>
+        </div>
+        <div class="gal-item">
+          <img src="assets/gallery-doctor-at-work.jpg" alt="Dr. Patra at work" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Dr. Patra at work<br>— add real image</div>
+        </div>
+        <div class="gal-item">
+          <img src="assets/gallery-exterior.jpg" alt="Clinic exterior and signage" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">
+          <div class="gal-fallback" style="display:none;">Clinic signage / exterior<br>— add real image</div>
+        </div>
       </div>
     </div>
   </section>
